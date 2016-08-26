@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.bigger {
+			font-weight: bolder;
+		}
+	</style>
+	<title></title>
+</head>
+<body ng-app="angularCCModule">
+	<div>It works !</div>
+
+	<div ng-controller="DemoCtrlOne">
+		<p>{{ nameFilter }}</p>
+
+		<label>Filter by eye color</label>
+		<input type="text" ng-model='nameFilter.eyeColor'></input>
+
+		<hr/>
+
+		<label>Filter by description</label>
+		<input type="text" ng-model='nameFilter.description'></input>
+
+
+		<ul>
+			<li ng-repeat="quizz in quizzes | filter : nameFilter">
+				<p><span>Age : </span><span ng-class="{'bigger' : quizz.age > 25}">{{ quizz.age }}</span></p>
+				<p><span>Eye Color : </span><span ng-style="{'color' : quizz.eyeColor}">{{ quizz.eyeColor }}</span></p>
+				<p><span>Name First : </span><span>{{ quizz.name.first }}</span></p>
+				<p><span>Name Last : </span><span>{{ quizz.name.last }}</span></p>
+				<hr/>
+			</li>
+		</ul>
+
+	</div>
+
+	<!-- scripts -->
+	<script type="text/javascript" src="scripts/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="scripts/angular.min.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
+	<!-- end scripts -->
+</body>
+</html>
